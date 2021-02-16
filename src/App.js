@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
+import './index.css';
 
-function App() {
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+import Main from "./components/Main";
+import { BrowserRouter, Route } from "react-router-dom";
+import login from './components/Login';
+import Carrusel from './components/Carrusel';
+import Reporte from './components/Reporte';
+
+
+export default function App() {
+
+//firebase login
+//firebase init inicializa dentro del root
+// npm run build  x hacer producion el proyecto final
+//firebase deploy
+
+//te da esto
+//Project Console: https://console.firebase.google.com/project/hvcrm-24530/overview
+//Hosting URL: https://hvcrm-24530.web.app
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <>
+    <BrowserRouter>
+    <Navbar/>
+    
+    <div className="container"> 
+    <Carrusel/> 
+      
+      <Route exact path="/Login" component={login} />
+      <Route exact path="/Main" component={Main} />
+      
+      <Route exact path="/Reporte" component={Reporte}/>
+    
     </div>
+      </BrowserRouter> 
+    </>
+      
   );
 }
 
-export default App;
+
+//https://codesandbox.io/s/conduit-1o663?file=/src/components/Navbar.js
